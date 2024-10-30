@@ -3,28 +3,17 @@ export const environmentProd={
   endPoint:{
     teachers:{
       getAll:"teachers",
-      getBySlug:"forums/slug",
-      getOne:"forums",
-      create:"forums",
-      update:"forums",
-      delete:"forums",
+      create:"teachers",
     },
-    sujets:{
-      getAll:"sujets",
-      getBySlug:"sujets/slug",
-      getOne:"sujets",
-      create:"sujets",
-      update:"sujets",
-      delete:"sujets",
+    students:{
+      getAll:"teachers",
+      create:"teachers",
     },
-    message:{
-      getAll:"message",
-      getBySlug:"message/slug",
-      getOne:"message",
-      create:"message",
-      update:"message",
-      delete:"message",
-    },
+    users:{
+      getAll:"teachers",
+      create:"teachers",
+    }
+
 
   }
 }

@@ -1,89 +1,84 @@
 <div class="main-content container-fluid">
-
-  <div class="main-content container-fluid">
-    <div class="page-title">
-      <div class="row">
-        <div class="col-12 col-md-6 order-md-1 order-last">
-          <h4>Ajouter un utilisateur</h4>
-
-          <p class="text-subtitle text-muted">Remplissez les informations ci-dessous pour enregistrer l'utilisateur. Veuillez vérifier toutes les données avant de les soumettre</p>
-        </div>
-        <div class="col-12 col-md-6 order-md-2 order-first">
-          <nav aria-label="breadcrumb" class='breadcrumb-header'>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a routerLink="/user">
-                  <i data-feather="arrow-left" width="80" alt="retour"> Retour</i>
-                </a>
-              </li>
-            </ol>
-
-          </nav>
-        </div>
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h4>Ajouter un utilisateur</h4>
+        <p class="text-subtitle text-muted">Remplissez les informations ci-dessous pour enregistrer l'utilisateur. Veuillez vérifier toutes les données avant de les soumettre.</p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class='breadcrumb-header'>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="/user">
+                <i data-feather="arrow-left" width="80" alt="retour"> Retour</i>
+              </a>
+            </li>
+          </ol>
+        </nav>
       </div>
     </div>
-    <section id="multiple-column-form">
-      <div class="row match-height">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              Ajouter un utilisateur
+  </div>
 
-            </div>
+  <section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            Ajouter un utilisateur
+          </div>
 
-            <div class="card-content">
-              <div class="card-body">
-
-
-                <form action="" method="post">
-
-                  <input hidden type="text">
-
-                  <div class="row">
-                    <!-- Champ Pseudo -->
-                    <div class="col-md-12 col-12">
-                      <div class="form-group">
-                        <label for="username">Pseudo</label>
-                        <input type="text" id="username" class="form-control" placeholder="Pseudo" required>
-                      </div>
-                    </div>
-
-                    <!-- Champ Mot de passe -->
-                    <div class="col-md-12 col-12">
-                      <div class="form-group">
-                        <label for="password">Mot de passe</label>
-                        <input type="password" id="password"  class="form-control" placeholder="Mot de passe" required>
-                      </div>
-                    </div>
-
-                    <!-- Sélecteur de Rôle -->
-                    <div class="col-md-12 col-12">
-                      <div class="form-group">
-                        <label for="role">Rôle</label>
-                        <select class="form-control" required id="role">
-                          <option value="" disabled selected>-- Sélectionnez un rôle --</option>
-                          <option>
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="submit" class="btn btn-primary mr-1 mb-1">Soumettre</button>
-                      <button type="reset" class="btn btn-light-secondary mr-1 mb-1">Réinitialiser</button>
+          <div class="card-content">
+            <div class="card-body">
+              <form (ngSubmit)="saveUser()" [formGroup]="userForm">
+                <div class="row">
+                  <!-- Champ Pseudo -->
+                  <div class="col-md-12 col-12">
+                    <div class="form-group">
+                      <label for="username">Pseudo</label>
+                      <input type="text" id="username" formControlName="username" class="form-control" placeholder="Pseudo" required>
+                      <strong *ngIf="isInvalidInput(userForm.controls['username'])" class="text-danger">
+                        Veuillez entrer un pseudo.
+                      </strong>
                     </div>
                   </div>
 
+                  <!-- Champ Mot de passe -->
+                  <div class="col-md-12 col-12">
+                    <div class="form-group">
+                      <label for="password">Mot de passe</label>
+                      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Mot de passe" required>
+                      <strong *ngIf="isInvalidInput(userForm.controls['password'])" class="text-danger">
+                        Veuillez entrer un mot de passe d'au moins 6 caractères.
+                      </strong>
+                    </div>
+                  </div>
 
-                </form>
-              </div>
+                  <!-- Sélecteur de Rôle -->
+                  <div class="col-md-12 col-12">
+                    <div class="form-group">
+                      <label for="role">Rôle</label>
+                      <select class="form-control" formControlName="role" required id="role">
+                        <option value="" disabled selected>-- Sélectionnez un rôle --</option>
+                        <option value="admin">Administrateur</option>
+                        <option value="editor">Éditeur</option>
+                        <option value="viewer">Visionneur</option>
+                      </select>
+                      <strong *ngIf="isInvalidInput(userForm.controls['role'])" class="text-danger">
+                        Veuillez sélectionner un rôle.
+                      </strong>
+                    </div>
+                  </div>
+
+                  <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary mr-1 mb-1">Soumettre</button>
+                    <button type="reset" class="btn btn-light-secondary mr-1 mb-1">Réinitialiser</button>
+                  </div>
+                </div>
+              </form>
             </div>
-
-
           </div>
         </div>
       </div>
-    </section>
-
-  </div>
+    </div>
+  </section>
 </div>

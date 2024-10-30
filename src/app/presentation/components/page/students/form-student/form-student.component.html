@@ -1,138 +1,140 @@
-<div class="main-content container-fluid" >
-
-  <div class="main-content container-fluid">
-    <div class="page-title">
-      <div class="row">
-        <div class="col-12 col-md-4 order-md-1 order-last">
-          <p class="text-subtitle text-muted">Remplissez les informations ci-dessous pour ajouter ou modifier un élève. Veuillez vérifier toutes les données avant de les soumettre.</p>
-        </div>
-        <div class="col-12 col-md-6 order-md-2 order-first">
-          <nav aria-label="breadcrumb" class="breadcrumb-header">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="@{/students}">
-                  <i data-feather="arrow-left" width="80" alt="retour"></i>
-                </a>
-              </li>
-            </ol>
-          </nav>
-        </div>
+<div class="main-content container-fluid">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-4 order-md-1 order-last">
+        <p class="text-subtitle text-muted">Remplissez les informations ci-dessous pour ajouter ou modifier un élève. Veuillez vérifier toutes les données avant de les soumettre.</p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="@{/students}">
+                <i data-feather="arrow-left" width="80" alt="retour"></i>
+              </a>
+            </li>
+          </ol>
+        </nav>
       </div>
     </div>
-    <section id="multiple-column-form">
-      <div class="row match-height">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h4 class="card-title">Ajouter un élève</h4>
-            </div>
+  </div>
 
-            <div class="card-content">
-              <div class="card-body">
+  <section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Ajouter un élève</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
 
-                <form action="" method="post">
-
-                  <div class="row">
-                    <!-- Champ pour le prénom -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" class="form-control" placeholder="Prénom" required>
-
-                      </div>
-                    </div>
-
-                    <!-- Champ pour le nom -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="nom">Nom</label>
-                        <input type="text" id="nom" class="form-control" placeholder="Nom" required>
-                      </div>
-                    </div>
-
-                    <!-- Champ pour le choix du genre (liste déroulante) -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="gender">Genre</label>
-                        <select id="gender"  class="form-control" required>
-                          <option value="" disabled selected>Choisir...</option>
-                          <option ></option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <!-- Champ pour la date de naissance -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="date-naissance">Date de Naissance</label>
-                        <input type="date" id="date-naissance" class="form-control" required>
-                      </div>
-                    </div>
-
-
-
-                    <!-- Champ pour le téléphone -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="telephone">Téléphone</label>
-                        <input type="text" id="telephone" class="form-control" placeholder="Téléphone" required>
-                      </div>
-                    </div>
-
-
-
-
-                    <!-- Champ pour l'adresse -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="street">Rue</label>
-                        <input type="text" id="street" class="form-control"  placeholder="Rue" required>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country">Pays</label>
-                        <input type="text" id="country" class="form-control" placeholder="Pays" required>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city">Ville</label>
-                        <input type="text" id="city" class="form-control"  placeholder="Ville" required>
-                      </div>
-                    </div>
-
-                    <!-- Champ pour le matricule -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="matricule">Matricule</label>
-                        <input type="text" id="matricule" class="form-control"  placeholder="Matricule" required>
-                      </div>
-                    </div>
-                    <!-- Champ pour le téléphone du parent -->
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="telephoneParent">Téléphone Parent</label>
-                        <input type="text" id="telephoneParent" class="form-control" placeholder="Téléphone Parent" required>
-                      </div>
-                    </div>
-
-                    <!-- Boutons d'action -->
-                    <div class="col-12 d-flex justify-content-center mt-4">
-                      <button type="reset" class="btn btn-light-secondary mr-4" style="width: 150px;">Annuler</button>
-                      <button type="submit" class="btn btn-primary ml-4" style="width: 150px;">Enregistrer</button>
+              <form (ngSubmit)="saveStudent()" [formGroup]="studentForm">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="prenom">Prénom</label>
+                      <input type="text" id="prenom" formControlName="prenom" class="form-control" placeholder="Prénom" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['prenom'])" class="text-danger">
+                        Veuillez entrer un prénom.
+                      </strong>
                     </div>
                   </div>
-                </form>
-              </div>
-            </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="nom">Nom</label>
+                      <input type="text" id="nom" formControlName="nom" class="form-control" placeholder="Nom" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['nom'])" class="text-danger">
+                        Veuillez entrer un nom.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="gender">Genre</label>
+                      <select id="gender" formControlName="gender" class="form-control" required>
+                        <option value="" disabled selected>Choisir...</option>
+                        <option value="male">Homme</option>
+                        <option value="female">Femme</option>
+                      </select>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['gender'])" class="text-danger">
+                        Veuillez choisir un genre.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="date-naissance">Date de Naissance</label>
+                      <input type="date" id="date-naissance" formControlName="dateNaissance" class="form-control" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['dateNaissance'])" class="text-danger">
+                        Veuillez entrer une date de naissance.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="telephone">Téléphone</label>
+                      <input type="text" id="telephone" formControlName="telephone" class="form-control" placeholder="Téléphone" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['telephone'])" class="text-danger">
+                        Veuillez entrer un numéro de téléphone.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="street">Rue</label>
+                      <input type="text" id="street" formControlName="street" class="form-control" placeholder="Rue" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['street'])" class="text-danger">
+                        Veuillez entrer une adresse.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="country">Pays</label>
+                      <input type="text" id="country" formControlName="country" class="form-control" placeholder="Pays" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['country'])" class="text-danger">
+                        Veuillez entrer un pays.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="city">Ville</label>
+                      <input type="text" id="city" formControlName="city" class="form-control" placeholder="Ville" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['city'])" class="text-danger">
+                        Veuillez entrer une ville.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="matricule">Matricule</label>
+                      <input type="text" id="matricule" formControlName="matricule" class="form-control" placeholder="Matricule" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['matricule'])" class="text-danger">
+                        Veuillez entrer un matricule.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="telephoneParent">Téléphone Parent</label>
+                      <input type="text" id="telephoneParent" formControlName="telephoneParent" class="form-control" placeholder="Téléphone Parent" required>
+                      <strong *ngIf="isInvalidInput(studentForm.controls['telephoneParent'])" class="text-danger">
+                        Veuillez entrer un numéro de téléphone du parent.
+                      </strong>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-center mt-4">
+                    <button type="reset" class="btn btn-light-secondary mr-4" style="width: 150px;">Annuler</button>
+                    <button type="submit" class="btn btn-primary" style="width: 150px;">Enregistrer</button>
+                  </div>
+                </div>
+              </form>
 
+            </div>
           </div>
         </div>
       </div>
-    </section>
-
-  </div>
+    </div>
+  </section>
 </div>
