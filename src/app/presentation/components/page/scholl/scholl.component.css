@@ -1,0 +1,6 @@
+#multiple-column-form {
+  max-width: 5000px; /* Largeur maximale */
+  margin: 0 auto;   /* Centrer horizontalement */
+  padding: 100px;
+  align-content: center/* Espacement intérieur */
+}

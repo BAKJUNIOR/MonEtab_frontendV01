@@ -1,0 +1,110 @@
+<div class="main-content container-fluid" >
+
+
+  <div class="main-content container-fluid">
+    <div class="page-title">
+      <div class="row">
+
+
+
+        <div class="col-12 col-md-6 order-md-1 order-last">
+          <h3>Professeur
+
+            <i> <img src="@{/images/professeur.png}" width="50" ></i>
+
+          </h3>
+          <p class="text-subtitle text-muted">
+            Cette page affiche un tableau des professeurs avec leurs détails essentiels, tels que le nom, le prénom, la matière enseignée, le statut de disponibilité, l'âge, le téléphone et la ville.
+          </p>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+          <nav aria-label="breadcrumb" class='breadcrumb-header'>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a routerLink="/teacher/add" class="d-flex align-items-center">
+                  <i data-feather="plus" class="icon-circle" width="35"></i>
+                  <button type="submit" class="btn btn-primary btn-lg ml-2">Nouvel professeur</button>
+                </a>
+              </li>
+            </ol>
+
+          </nav>
+        </div>
+      </div>
+    </div>
+    <section class="section">
+      <div class="card">
+        <div class="card-header">
+          Simple Datatable
+
+          <!-- Formulaire de recherche -->
+          <form  action="" method="get" class="mt-3" style="width: 70% ; display: flex">
+            <input type="text" name="query" class="form-control" placeholder="Rechercher un teacher... NOM , GENRE , MATRICULE " required style="width: 50% " >
+            <select name="gender"  class="form-control"  style="width: 10%">
+              <option value="MAN" >HOMME</option>
+              <option value="WOMAN" >FEMME</option>
+              <option value="OTHER" >AUTRE</option>
+            </select>
+            <button class="btn btn-outline-primary" type="submit">Rechercher</button>
+          </form>
+
+        </div>
+        <div class="card-body">
+          <table class='table table-striped' id="tableTeacher">
+            <thead>
+            <tr>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Available</th>
+              <th>Speciality</th>
+              <th>gender</th>
+              <th>Birthday</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr >
+              <td ></td>
+              <td ></td>
+              <td ></td>
+              <td ></td>
+              <td ></td>
+              <td ></td>
+              <td ></td>
+
+              <td>
+                <a routerLink="/student/add"   class="btn btn-warning btn-sm">Modifier</a>
+                <a  class="btn btn-danger btn-sm" onclick="confirmDelete(event, this)">Supprimer</a>                            </td>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- JavaScript pour masquer le message après un certain temps -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var successMessage = document.getElementById("success-message");
+        if (successMessage) {
+          // Masquer le message après 5 secondes (5000 millisecondes)
+          setTimeout(function() {
+            successMessage.style.opacity = 0;
+            setTimeout(function() {
+              successMessage.style.display = 'none';
+            }, 500); // Attendre que l'animation de fondu soit terminée
+          }, 3000);
+        }
+      });
+    </script>
+
+    <!-- Assurez-vous d'inclure Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </div>
+
+</div>
+

@@ -1,0 +1,102 @@
+<div id="sidebar" class='active' ><!--sidebar-->
+  <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+      <img src="/assets/images/logo.png" alt="" srcset="" width="100px" style="width: 150px; height: auto;display: block;margin: 0 auto;" />
+    </div>
+    <div class="sidebar-menu">
+      <ul class="menu">
+        <hr style="width: 80%; border: 1px solid #ccc; margin: 20px auto 10px">
+
+        <!-- Dashboard -->
+        <li class="sidebar-item active">
+          <a routerLink="/home" class='sidebar-link'>
+            <i data-feather="grid" width="25"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+        <!-- Students -->
+        <li class="sidebar-item">
+          <a routerLink="/student" class='sidebar-link'>
+            <i><img src="/assets/images/eleves.png" width="25"></i>
+            <span>Students</span>
+          </a>
+        </li>
+
+        <!-- Teachers -->
+        <li class="sidebar-item">
+          <a routerLink="/teacher" class='sidebar-link'>
+            <i><img src="/assets/images/professeur.png" width="25"></i>
+            <span>Teachers</span>
+          </a>
+        </li>
+
+        <!-- Users -->
+        <li class="sidebar-item">
+          <a routerLink="/user" class='sidebar-link'>
+            <i><img src="/assets/images/user.png" width="25"></i>
+            <span>Users</span>
+          </a>
+        </li>
+
+        <!-- Reports -->
+        <li class="sidebar-item">
+          <a routerLink="/report" class='sidebar-link'>
+            <i><img src="/assets/images/rapport.png" width="25"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+
+        <!-- Application Settings -->
+        <li class="sidebar-item">
+          <a routerLink="/appSettings" class='sidebar-link'>
+            <i><img src="/assets/images/Settings.png" width="25"></i>
+            <span>Application Settings</span>
+          </a>
+        </li>
+
+        <!-- School Settings -->
+        <li class="sidebar-item">
+          <a routerLink="/school" class='sidebar-link'>
+            <i><img src="/assets/images/ecole.png" width="25"></i>
+            <span>School Settings</span>
+          </a>
+        </li>
+
+
+        <li class="sidebar-item">
+          <a class='sidebar-link' href="@{https://documenter.getpostman.com/view/36545496/2sAXqp9485}" target="_blank">
+            <i><img src="/assets/images/postman.png" width="40"></i>
+            <span>Documentation Postman</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a  class='sidebar-link' href="@{/swagger-ui/index.html}">
+            <i><img src="/assets/images/swagger.png" width="25"></i>
+            <span>Documentation Swagger</span>
+          </a>
+        </li>
+
+
+
+        <div style="padding-top: 100px">
+          <hr style="width: 80%; border: 1px solid #ccc; margin: 20px auto 10px">
+
+        </div>
+
+
+
+        <li class="sidebar-item  "style="padding-top:0px">
+          <a  class='sidebar-link'>
+            <i data-feather="log-out" width="20" ></i>
+            <span>Logout</span>
+          </a>
+
+        </li>
+
+      </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+  </div>
+</div>
