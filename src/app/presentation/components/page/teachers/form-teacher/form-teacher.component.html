@@ -1,30 +1,30 @@
 <div class="form-container">
-  <h1 class="form-title">Ajouter un professeur</h1>
+  <h1 class="form-title">{{ teacherId ? 'Modifier un Professeur' : 'Ajouter un Professeur' }}</h1>
   <form [formGroup]="teacherForm" (ngSubmit)="saveTeacher()">
-    <p class="text-subtitle text-muted">Remplissez les informations ci-dessous pour ajouter un nouvel professeur. Veuillez vérifier toutes les données avant de les soumettre.</p>
+    <p class="text-subtitle text-muted">
+      Remplissez les informations ci-dessous pour {{ teacherId ? 'modifier' : 'ajouter' }} un professeur. Veuillez vérifier toutes les données avant de les soumettre.
+    </p>
+
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
 
     <div class="row">
       <!-- Champ pour le prénom -->
       <div class="col-md-6 col-12">
         <div class="form-group">
-          <label for="prenom">Prénom</label>
-          <input type="text" id="prenom" class="form-control"
-                 formControlName="prenom" required placeholder="Prénom">
-          <strong *ngIf="isInvalidInput(teacherForm.controls['prenom'])" class="text-danger">
-            Veuillez entrer un prénom.
-          </strong>
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" class="form-control" formControlName="firstName" required placeholder="Prénom">
+          <strong *ngIf="isInvalidInput(teacherForm.controls['firstName'])" class="text-danger">Veuillez entrer un prénom.</strong>
         </div>
       </div>
 
       <!-- Champ pour le nom -->
       <div class="col-md-6 col-12">
         <div class="form-group">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" class="form-control"
-                 formControlName="nom" required placeholder="Nom">
-          <strong *ngIf="isInvalidInput(teacherForm.controls['nom'])" class="text-danger">
-            Veuillez entrer un nom.
-          </strong>
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" class="form-control" formControlName="lastName" required placeholder="Nom">
+          <strong *ngIf="isInvalidInput(teacherForm.controls['lastName'])" class="text-danger">Veuillez entrer un nom.</strong>
         </div>
       </div>
 
@@ -34,103 +34,93 @@
           <label for="gender">Genre</label>
           <select id="gender" formControlName="gender" class="form-control" required>
             <option value="" disabled selected>Choisir...</option>
-            <option value="male">Masculin</option>
-            <option value="female">Féminin</option>
+            <option value="MAN">Homme</option>
+            <option value="WOMAN">Femme</option>
+            <option value="OTHER">Autre</option>
           </select>
-          <strong *ngIf="isInvalidInput(teacherForm.controls['gender'])" class="text-danger">
-            Veuillez choisir un genre.
-          </strong>
+          <strong *ngIf="isInvalidInput(teacherForm.controls['gender'])" class="text-danger">Veuillez choisir un genre.</strong>
         </div>
       </div>
 
       <!-- Champ pour la date de naissance -->
       <div class="col-md-6 col-12">
         <div class="form-group">
-          <label for="date-naissance">Date de Naissance</label>
-          <input type="date" id="date-naissance" class="form-control"
-                 formControlName="dateNaissance" required>
-          <strong *ngIf="isInvalidInput(teacherForm.controls['dateNaissance'])" class="text-danger">
-            Veuillez entrer une date de naissance.
-          </strong>
+          <label for="dateOfBirth">Date de Naissance</label>
+          <input type="date" id="dateOfBirth" class="form-control" formControlName="dateOfBirth" required>
+          <strong *ngIf="isInvalidInput(teacherForm.controls['dateOfBirth'])" class="text-danger">Veuillez entrer une date de naissance.</strong>
         </div>
       </div>
 
       <!-- Champ pour le téléphone -->
       <div class="col-md-6 col-12">
         <div class="form-group">
-          <label for="telephone">Téléphone</label>
-          <input type="text" id="telephone" class="form-control"
-                 formControlName="telephone" required placeholder="Téléphone">
-          <strong *ngIf="isInvalidInput(teacherForm.controls['telephone'])" class="text-danger">
-            Veuillez entrer un numéro de téléphone.
-          </strong>
+          <label for="numbers">Téléphone</label>
+          <input type="text" id="numbers" class="form-control" formControlName="numbers" required placeholder="Téléphone">
+          <strong *ngIf="isInvalidInput(teacherForm.controls['numbers'])" class="text-danger">Veuillez entrer un numéro de téléphone.</strong>
         </div>
       </div>
 
-      <!-- Champ pour l'adresse -->
+      <!-- Champ pour le choix de disponibilité -->
       <div class="col-md-6 col-12">
         <div class="form-group">
-          <label for="street">Rue</label>
-          <input type="text" id="street" class="form-control"
-                 formControlName="street" required placeholder="Rue">
-          <strong *ngIf="isInvalidInput(teacherForm.controls['street'])" class="text-danger">
-            Veuillez entrer une adresse.
-          </strong>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-12">
-        <div class="form-group">
-          <label for="country">Pays</label>
-          <input type="text" id="country" class="form-control"
-                 formControlName="country" required placeholder="Pays">
-          <strong *ngIf="isInvalidInput(teacherForm.controls['country'])" class="text-danger">
-            Veuillez entrer un pays.
-          </strong>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-12">
-        <div class="form-group">
-          <label for="city">Ville</label>
-          <input type="text" id="city" class="form-control"
-                 formControlName="city" required placeholder="Ville">
-          <strong *ngIf="isInvalidInput(teacherForm.controls['city'])" class="text-danger">
-            Veuillez entrer une ville.
-          </strong>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-12">
-        <div class="form-group">
-          <label for="prochainCours">Prochain Cours</label>
-          <input type="text" id="prochainCours" class="form-control"
-                 formControlName="prochainCours" placeholder="Prochain Cours">
-        </div>
-      </div>
-
-      <!-- Boutons pour le choix du vacant -->
-      <div class="col-md-6 col-12">
-        <div class="form-group">
-          <label>Vacant</label>
+          <label>Disponible</label>
           <div class="d-flex align-items-center">
-            <div class="custom-control custom-radio mr-4">
-              <input type="radio" id="oui" class="custom-control-input" formControlName="vacant" value="true">
-              <label class="custom-control-label" for="oui">Oui</label>
+            <div class="custom-control custom-radio m-3">
+              <input type="radio" id="availableYes" class="custom-control-input" formControlName="available" [value]="true">
+              <label class="custom-control-label" for="availableYes">Oui</label>
             </div>
             <div class="custom-control custom-radio">
-              <input type="radio" id="non" class="custom-control-input" formControlName="vacant" value="false">
-              <label class="custom-control-label" for="non">Non</label>
+              <input type="radio" id="availableNo" class="custom-control-input" formControlName="available" [value]="false">
+              <label class="custom-control-label" for="availableNo">Non</label>
             </div>
           </div>
+          <strong *ngIf="isInvalidInput(teacherForm.controls['available'])" class="text-danger">Veuillez choisir une option.</strong>
         </div>
       </div>
 
-      <!-- Boutons d'action -->
-      <div class="col-12 d-flex justify-content-center mt-4">
-        <button type="reset" class="btn btn-light-secondary mr-4" style="width: 150px;">Annuler</button>
-        <button type="submit" class="btn btn-primary" style="width: 150px;">Enregistrer</button>
+      <!-- Groupe Adresse -->
+      <div formGroupName="address" class="col-12">
+        <div class="form-group">
+          <label for="country">Pays</label>
+          <input type="text" id="country" class="form-control" formControlName="country" placeholder="Pays" />
+          <div *ngIf="isInvalidInput(teacherForm.get('address.country'))" class="text-danger">Champ requis.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="city">Ville</label>
+          <input type="text" id="city" class="form-control" formControlName="city" placeholder="Ville" />
+          <div *ngIf="isInvalidInput(teacherForm.get('address.city'))" class="text-danger">Champ requis.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="street">Rue</label>
+          <input type="text" id="street" class="form-control" formControlName="street" placeholder="Rue" />
+          <div *ngIf="isInvalidInput(teacherForm.get('address.street'))" class="text-danger">Champ requis.</div>
+        </div>
       </div>
+
+      <!-- Champ pour la spécialité -->
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="specialty">Spécialité</label>
+          <input type="text" id="specialty" class="form-control" formControlName="specialty" required placeholder="Spécialité">
+          <strong *ngIf="isInvalidInput(teacherForm.controls['specialty'])" class="text-danger">Veuillez entrer une spécialité.</strong>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="urlPicture">URL de l'image</label>
+          <input type="text" id="urlPicture" class="form-control" formControlName="urlPicture" required placeholder="URL de l'image">
+          <strong *ngIf="isInvalidInput(teacherForm.controls['urlPicture'])" class="text-danger">Veuillez entrer une URL d'image valide.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <button type="submit" class="btn btn-primary" [disabled]="teacherForm.invalid">
+        {{ teacherId ? 'Modifier' : 'Ajouter' }}
+      </button>
     </div>
   </form>
 </div>

@@ -1,19 +1,12 @@
-export const environmentProd={
-  baseUrl: "localhost:8081/api",
-  endPoint:{
-    teachers:{
-      getAll:"teachers",
-      create:"teachers",
-    },
-    students:{
-      getAll:"teachers",
-      create:"teachers",
-    },
-    users:{
-      getAll:"teachers",
-      create:"teachers",
+export const environmentProd = {
+  baseUrl: "http://localhost:8080/api",
+  endPoint: {
+    teachers: {
+      getAll: "teachers",
+      create: "teachers",
+      delete: "teachers",
+      update: "teachers",
+      getById: "teachers"
     }
-
-
   }
-}
+};
