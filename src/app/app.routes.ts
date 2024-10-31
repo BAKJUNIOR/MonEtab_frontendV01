@@ -29,6 +29,9 @@ export const routes: Routes = [
       { path: 'teacher', component: TeacherComponent },
       { path: 'teacher/add', component: FormTeacherComponent },
 
+      { path: 'teacher/create', component: FormTeacherComponent },
+      { path: 'teacher/edit/:id', component: FormTeacherComponent }, // Route pour la modification
+
       { path: 'user', component: UserComponent },
       { path: 'user/add', component: FormUserComponent },
     ],

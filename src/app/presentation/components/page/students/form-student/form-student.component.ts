@@ -40,8 +40,8 @@ export class FormStudentComponent implements OnInit {
     return input.invalid && (input.dirty || input.touched);
   }
 
-  saveStudent() {
-
-      this.baseService.create(environmentProd.endPoint.students.create, this.studentForm.value)
+  saveStudent() :void {
+    console.log(this.studentForm.value)
+    // this.baseService.create(environmentProd.endPoint.students.create, this.studentForm.value)
   }
 }
